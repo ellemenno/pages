@@ -1,0 +1,30 @@
+<div class="ui search">
+  <div class="ui icon input">
+    <input class="prompt" type="text" placeholder="search...">
+    <i class="search icon"></i>
+  </div>
+  <div class="results"></div>
+</div>
+
+<script type="text/javascript">
+var class_search = {};
+
+// ready event
+class_search.ready = function() {
+  var content = [
+    {% for pkg in (site.data.project.packages) %}
+    { title: '{{ pkg.title }}' },
+    {% endfor %}
+  ];
+
+  $('.ui.search').search({
+    searchFields: ['title'],
+    source: content
+  });
+};
+
+// attach ready event
+$(document)
+  .ready(class_search.ready)
+;
+</script>
