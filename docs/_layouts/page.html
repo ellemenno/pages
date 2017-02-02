@@ -2,11 +2,32 @@
 layout: base
 ---
 
-{% include title.html %}
+<div id="sidebar" class="ui vertical left inverted visible menu sidebar">
+{% include indices.html %}
+</div>
 
-<div id="page">
+<div id="title" class="ui top fixed menu">
+{% include title.html %}
+</div>
+
+<div class="pusher">
+
+<div id="page" class="main ui container" style="padding-top: 7em;">
 {{ content }}
 </div>
 
-{% include index.html %}
+<div id="attribution" class="ui padded basic segment">
 {% include attribution.html %}
+</div>
+
+<script type="text/javascript">
+sidebar_init = function() {
+  $('#sidebar').sidebar({
+    closable: false,    // disable any click will close
+    dimPage: false,     // disable dimming of pusher
+    transition: 'push', // vs 'overlay'
+  });
+};
+
+$(sidebar_init); // add to jQ onReady()
+</script>

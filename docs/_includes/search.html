@@ -1,4 +1,4 @@
-<div class="ui search">
+<div id="pkg-search" class="ui transparent search">
   <div class="ui icon input">
     <input class="prompt" type="text" placeholder="search...">
     <i class="search icon"></i>
@@ -7,24 +7,17 @@
 </div>
 
 <script type="text/javascript">
-var class_search = {};
-
-// ready event
-class_search.ready = function() {
+pkg_search_init = function() {
   var content = [
-    {% for pkg in (site.data.project.packages) %}
-    { title: '{{ pkg.title }}' },
+    {% for pkg in (site.data.project.packages) %}{ title: '{{ pkg.title }}' },
     {% endfor %}
   ];
 
-  $('.ui.search').search({
+  $('#pkg-search').search({
     searchFields: ['title'],
     source: content
   });
 };
 
-// attach ready event
-$(document)
-  .ready(class_search.ready)
-;
+$(pkg_search_init); // add to jQ onReady()
 </script>

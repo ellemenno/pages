@@ -1,4 +1,22 @@
-<div id="attribution">
-  {{ site.data.project.name }} &copy; {{ "now" | date: "%Y" }}
-  <a href="{{ site.data.project.repo }}">site repository</a>
-</div>
+<table class="ui collapsing very basic table">
+<tbody>
+<tr>
+
+  <td class="top aligned column" style="padding-left: .5em; padding-right: 0;">
+  <div class="ui large header">
+    <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 International license">
+    <i class="icon cc CC"></i><i class="icon cc BY"></i>
+    </a>
+  </div>
+  </td>
+
+  <td class="column" style="padding-left: .25em;">
+    <strong>{{ site.data.project.name }}</strong>
+    {{ "now" | date: "%Y" }} {{ site.data.project.owner }}
+    <br>
+    <a href="{{ site.data.project.repo }}">{{ site.data.project.repo }}</a>
+  </td>
+
+</tr>
+</tbody>
+</table>

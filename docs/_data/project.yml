@@ -1,5 +1,7 @@
 name: 'docs test'
 repo: 'https://ellemenno.github.io/pages/'
+owner: ellemenno
+version: '0.0.0'
 
 packages:
   - title: 'Andorra'

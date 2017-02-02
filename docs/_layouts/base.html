@@ -4,12 +4,31 @@
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
-  <link href="{{ site.baseurl }}/styles/semantic-2.2.6.min.css" type="text/css" charset="utf-8" rel="stylesheet" media="screen"/>
+  <link href="{{ site.baseurl }}/styles/semantic-2.2.7.min.css" type="text/css" charset="utf-8" rel="stylesheet" media="screen"/>
+  <link href="{{ site.baseurl }}/styles/cc/cc-icons.css" type="text/css" charset="utf-8" rel="stylesheet" media="screen"/>
+  <style type="text/css">
+    /* custom styling tweaks */
+    .large.text {
+      font-size: 1.5rem;
+    }
+
+    /* use flexbox to keep footer stuck to bottom */
+    .pusher {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    #page {
+      flex: 1;
+    }
+  </style>
   <script src="{{ site.baseurl }}/scripts/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="{{ site.baseurl }}/scripts/semantic-2.2.6.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="{{ site.baseurl }}/scripts/semantic-history.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="{{ site.baseurl }}/scripts/semantic-2.2.7.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
 {{ content }}
 </body>
+
 </html>
