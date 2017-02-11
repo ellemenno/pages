@@ -2,31 +2,51 @@
 layout: base
 ---
 
-<div id="sidebar" class="ui vertical left inverted visible menu sidebar">
-{% include indices.html %}
-</div>
-
-<div id="title" class="ui top fixed menu">
+<div id="title" class="ui fixed top menu">
 {% include title.html %}
 </div>
 
-<div class="pusher">
+<div class="ui bottom attached pushable segment">
 
-<div id="page" class="main ui container" style="padding-top: 7em;">
+<div id="sidebar-menu" class="ui vertical left inverted sidebar menu" style="padding-top: 4em;">
+{% include indices.html %}
+</div>
+
+<div class="pusher">
+<div class="ui two column grid">
+
+<div class="tablet only computer only four wide column">
+<div id="sidebar" class="ui vertical inverted menu" style="padding-top: 4em;">
+{% include indices.html %}
+</div>
+</div>
+
+<div class="twelve wide tablet twelve wide computer sixteen wide mobile column">
+<div id="page" class="ui basic segment" style="padding-top: 7em;">
 {{ content }}
 </div>
 
-<div id="attribution" class="ui padded basic segment">
+<div id="attribution" class="ui basic segment">
 {% include attribution.html %}
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 
 <script type="text/javascript">
 sidebar_init = function() {
-  $('#sidebar').sidebar({
+  $('#sidebar-menu')
+  .sidebar({
     closable: false,    // disable any click will close
     dimPage: false,     // disable dimming of pusher
-    transition: 'push', // vs 'overlay'
-  });
+    transition: 'push',
+    context: $('.ui.pushable.segment'),
+  })
+  .sidebar('attach events','#title .button.item') // inject toggle behavior into menu button
+  ;
 };
 
 $(sidebar_init); // add to jQ onReady()
