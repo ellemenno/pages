@@ -2,13 +2,13 @@
 layout: base
 ---
 
-<div id="title" class="ui fixed top menu">
+<div id="title" class="ui fixed top">
 {% include title.html %}
 </div>
 
 <div class="ui bottom attached pushable segment">
 
-<div id="sidebar-menu" class="ui vertical left inverted sidebar menu" style="padding-top: 4em;">
+<div id="sidebar-menu" class="ui vertical left inverted sidebar menu">
 {% include indices.html %}
 </div>
 
@@ -16,13 +16,13 @@ layout: base
 <div class="ui two column grid">
 
 <div class="tablet only computer only four wide column">
-<div id="sidebar" class="ui vertical inverted menu" style="padding-top: 4em;">
+<div id="sidebar" class="ui vertical inverted menu">
 {% include indices.html %}
 </div>
 </div>
 
 <div class="twelve wide tablet twelve wide computer sixteen wide mobile column">
-<div id="page" class="ui basic segment" style="padding-top: 7em;">
+<div id="page" class="ui basic segment">
 {{ content }}
 </div>
 

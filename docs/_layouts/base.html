@@ -7,11 +7,6 @@
   <link href="{{ site.baseurl }}/styles/semantic-2.2.7.min.css" type="text/css" charset="utf-8" rel="stylesheet" media="screen"/>
   <link href="{{ site.baseurl }}/styles/cc/cc-icons.css" type="text/css" charset="utf-8" rel="stylesheet" media="screen"/>
   <style type="text/css">
-    /* custom styling classes */
-    .large.text {
-      font-size: 1.5rem;
-    }
-
     /* use flexbox to keep footer stuck to bottom */
     .pusher {
       display: flex;
@@ -20,6 +15,21 @@
     }
     #page {
       flex: 1;
+    }
+
+    /* toggle visibility of the sidebar menu button at mobile width */
+    #title .button.item {
+      display: none;
+    }
+    @media only screen and (max-width: 767px) {
+      #title .button.item {
+        display: flex;
+      }
+    }
+
+    /* custom styling */
+    .large.text {
+      font-size: 1.5rem;
     }
   </style>
   <script src="{{ site.baseurl }}/scripts/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
