@@ -2,35 +2,33 @@
 layout: base
 ---
 
-<div id="title" class="ui fixed top">
+<div id="title" class="ui fixed menu">
 {% include title.html %}
 </div>
 
-<div class="ui bottom attached pushable segment">
+<div class="ui bottom attached pushable segment" style="margin-top: 3em;">
 
 <div id="sidebar-menu" class="ui vertical left inverted sidebar menu">
 {% include indices.html %}
 </div>
 
 <div class="pusher">
-<div class="ui two column grid">
 
-<div class="tablet only computer only four wide column">
+<div class="ui left attached internal rail">
 <div id="sidebar" class="ui vertical inverted menu">
 {% include indices.html %}
 </div>
 </div>
 
-<div class="twelve wide tablet twelve wide computer sixteen wide mobile column">
-<div id="page" class="ui basic segment">
+<div id="page">
+<div class="ui left aligned fluid container">
+<div id="content" class="ui basic segment">
 {{ content }}
 </div>
 
 <div id="attribution" class="ui basic segment">
 {% include attribution.html %}
 </div>
-</div>
-
 </div>
 </div>
 

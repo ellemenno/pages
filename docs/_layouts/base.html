@@ -17,17 +17,34 @@
       flex: 1;
     }
 
-    /* toggle visibility of the sidebar menu button at mobile width */
+    /* toggle visibility of menu button / sidebar at mobile width */
     #title .button.item {
       display: none;
+    }
+    .pusher #page {
+      margin-left: 15rem;
     }
     @media only screen and (max-width: 767px) {
       #title .button.item {
         display: flex;
       }
+      .pusher #sidebar {
+        display: none;
+      }
+      .pusher #page {
+        margin-left: 0;
+      }
     }
 
     /* custom styling */
+    #sidebar-menu {
+      width: 15rem;
+    }
+    #sidebar {
+      overflow-y: auto!important;
+      height: 100%;
+      max-height: 100vh;
+    }
     .large.text {
       font-size: 1.5rem;
     }
