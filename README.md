@@ -47,7 +47,7 @@ package org.as3lib.mvc
 ```
 
 ```ls
-// ls - loomscript syntax highlighting
+/* ls - loomscript syntax highlighting */
 package org.as3lib.mvc
 {
         /**
