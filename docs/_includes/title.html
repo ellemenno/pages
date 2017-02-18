@@ -18,8 +18,8 @@ update_dimensions = function() {
   $( "#result" ).html($(window).width() +' x ' +$(window).height());
 }
 set_resize_handler = function() {
-  $(window).resize(function() { update_dimensions(); });
-  update_dimensions();
+  update_dimensions(); // now
+  $(window).resize(function() { update_dimensions(); }); // ..and after resizes
 };
 
 $(set_resize_handler); // add to jQ onReady()
