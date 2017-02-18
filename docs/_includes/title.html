@@ -4,7 +4,7 @@
 
 <div class="borderless header item">
 <span class="large text">{{ site.data.project.name }}</span>
-<div class="ui horizontal label" style="font-weight: lighter;">v{{ site.data.project.version }}</div>
+<div id="result" class="ui horizontal label" style="font-weight: lighter;">v{{ site.data.project.version }}</div>
 </div>
 
 <div class="right menu">
@@ -12,3 +12,15 @@
 {% include search.html %}
 </div>
 </div>
+
+<script type="text/javascript">
+update_dimensions = function() {
+  $( "#result" ).html($(window).width() +' x ' +$(window).height());
+}
+set_resize_handler = function() {
+  $(window).resize(function() { update_dimensions(); });
+  update_dimensions();
+};
+
+$(set_resize_handler); // add to jQ onReady()
+</script>
