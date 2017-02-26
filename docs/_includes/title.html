@@ -13,7 +13,7 @@ update_dimensions = function() {
 }
 set_resize_handler = function() {
   update_dimensions(); // now
-  $(window).resize(function() { update_dimensions(); }); // ..and after resizes
+  $(window).resize(update_dimensions); // ..and after resizes
 };
 
 $(set_resize_handler); // add to jQ onReady()
