@@ -38,12 +38,12 @@ layout: base
 sidebar_init = function() {
   $('#sidebar-menu')
   .sidebar({
-    closable: false,    // disable any click will close
+    closable: false,    // disable closing by indiscriminate click
     dimPage: false,     // disable dimming of pusher
     transition: 'push',
     context: $('.ui.pushable.segment'),
   })
-  .sidebar('attach events','#title .button.item') // inject toggle behavior into menu button
+  .sidebar('attach events', '#title .button.item', 'toggle') // inject toggle behavior into menu button
   ;
 };
 
