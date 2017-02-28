@@ -13,7 +13,7 @@
   text-decoration: inherit;
   text-transform: none
 }
-i.icon.cc { font-family: Icons-CC; margin-right: 0; }
+i.icon.cc { font-family: Icons-CC; margin-left: -.2em; margin-right: 0; }
 i.icon.cc.SA:before { content: "a" }
 i.icon.cc.BY:before { content: "b" }
 i.icon.cc.CC:before { content: "c" }
