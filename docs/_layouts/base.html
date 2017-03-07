@@ -1,3 +1,7 @@
+---
+layout: compress
+---
+
 <!doctype html>
 <html lang="en">
 
@@ -5,57 +9,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }}</title>
-  <link href="{{ site.baseurl }}/styles/semantic-2.2.7.min.css" type="text/css" charset="utf-8" rel="stylesheet" media="screen"/>
-  <link href="{{ site.baseurl }}/styles/cc/cc-icons.css" type="text/css" charset="utf-8" rel="stylesheet" media="screen"/>
-  <style type="text/css">
-    /* use flexbox to keep footer stuck to bottom */
-    .pusher {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-    #page {
-      flex: 1;
-    }
-
-    /* toggle visibility of menu button / sidebar at 'mobile' width */
-    #title .button.item {
-      display: none;
-    }
-    .pusher #page {
-      margin-left: 15rem;
-    }
-    @media only screen and (max-width: 767px) {
-      #title .button.item {
-        display: flex;
-      }
-      .pusher #sidebar-fixed {
-        display: none;
-      }
-      .pusher #page {
-        margin-left: 0;
-      }
-    }
-
-    /* custom styling */
-    #sidebar-retractable {
-      width: 15rem;
-    }
-    #sidebar-fixed {
-      overflow-y: auto!important;
-      height: 100%;
-      max-height: 100vh;
-    }
-    .larger.text {
-      font-size: 150%;
-    }
-    .smaller.text {
-      font-size: 80%;
-    }
-  </style>
-  <script src="{{ site.baseurl }}/scripts/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="{{ site.baseurl }}/scripts/semantic-history.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="{{ site.baseurl }}/scripts/semantic-2.2.7.min.js" type="text/javascript" charset="utf-8"></script>
+  <link href="{{ site.baseurl }}/styles/site.css" type="text/css" rel="stylesheet" media="screen"/>
+  <script src="{{ site.baseurl }}/scripts/site.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>

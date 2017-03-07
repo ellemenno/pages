@@ -1,0 +1,17 @@
+# https://help.github.com/articles/configuring-jekyll/#configuration-settings-you-cannot-change
+highlighter: rouge
+
+# https://github.com/penibelst/jekyll-compress-html
+compress_html:
+  comments:  ["<!--", "-->"]
+
+# https://jekyllrb.com/docs/configuration/
+permalink: pretty # for trailing slash urls (requires index.html inside)
+
+# https://jekyllrb.com/docs/assets/
+sass:
+  style: compressed
+
+# site globals
+package_root: api
+code_indent: '  ' # 2 space indent

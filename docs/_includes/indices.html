@@ -7,9 +7,9 @@
 <div class="ui fitted inverted divider"></div>
 
 <div id="collection-tabs" class="ui inverted stackable pointing secondary menu">
-  <a class="active item" data-tab="api"></i> API</a>
-  <a class="item" data-tab="guides"></i> Guides</a>
-  <a class="item" data-tab="examples"></i> Examples</a>
+  <a class="active item" data-tab="api">API</a>
+  <a class="item" data-tab="guides">Guides</a>
+  <a class="item" data-tab="examples">Examples</a>
 </div>
 
 
@@ -73,14 +73,3 @@
   <a class="item">item</a>
   <a class="item">item</a>
 </div>
-
-<script type="text/javascript">
-collection_tabs_init = function() {
-  $('#collection-tabs .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
-};
-
-$(collection_tabs_init); // add to jQ onReady()
-</script>

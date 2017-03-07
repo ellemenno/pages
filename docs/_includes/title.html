@@ -6,15 +6,3 @@
 <span class="larger text">{{ site.data.project.name }}</span>
 <div id="result" class="ui horizontal label" style="font-weight: lighter;">v{{ site.data.project.version }}</div>
 </div>
-
-<script type="text/javascript">
-update_dimensions = function() {
-  $( "#result" ).html($(window).width() +' x ' +$(window).height());
-}
-set_resize_handler = function() {
-  update_dimensions(); // now
-  $(window).resize(update_dimensions); // ..and after resizes
-};
-
-$(set_resize_handler); // add to jQ onReady()
-</script>

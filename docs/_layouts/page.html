@@ -14,7 +14,7 @@ layout: base
 <div class="pusher">
 
 <div class="ui left attached internal rail">
-<div id="sidebar-fixed" class="ui vertical inverted menu" style="border-radius: 0;">
+<div id="sidebar-fixed" class="ui vertical left inverted menu" style="border-radius: 0;">
 <div id="indices">
 {% include indices.html %}
 </div>
@@ -34,46 +34,12 @@ layout: base
 </div>
 
 </div>
+</div>
+
 
 <script type="text/javascript">
-sidebar_init = function() {
-  $('#sidebar-retractable')
-  .sidebar({
-    closable: false,    // disable closing by indiscriminate click
-    dimPage: false,     // disable dimming of pusher
-    transition: 'push',
-    context: $('.ui.pushable.segment'),
-  })
-  .sidebar('attach events', '#title .button.item', 'toggle') // inject toggle behavior into menu button
-  ;
-};
-
-$(sidebar_init); // add to jQ onReady()
-</script>
-
-<script type="text/javascript">
-ensure_mobile_view = function() {
-  if (0 == $('#sidebar-retractable').has('#indices').length) {
-    $('#indices').appendTo( $('#sidebar-retractable') );
-  }
-};
-ensure_desktop_view = function() {
-  if (0 == $('#sidebar-fixed').has('#indices').length) {
-    $('#indices').appendTo( $('#sidebar-fixed') );
-  }
-  if ($('#sidebar-retractable').sidebar('is visible')) {
-    $('#sidebar-retractable').sidebar('hide');
-  }
-};
-check_sidebar_visibility = function() {
-  if ($('#sidebar-fixed').css('display') == 'none') ensure_mobile_view();
-  else ensure_desktop_view();
-};
-
-set_resize_handler = function() {
-  check_sidebar_visibility(); // now
-  $(window).resize(check_sidebar_visibility); // ..and after resizes
-};
-
-$(set_resize_handler); // add to jQ onReady()
+{% include scripts/title.js %}
+{% include scripts/indices.js %}
+{% include scripts/search.js %}
+{% include scripts/page.js %}
 </script>
