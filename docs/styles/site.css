@@ -2,31 +2,32 @@
 layout: compress
 ---
 
-{% include styles/cc-icons.min.css %}
-{% include styles/syntax.min.css %}
+{% include themes/syntax.min.css %}
 
 {% capture _css %}{% include styles/tweaks.css %}{% endcapture %}{{ _css | scssify }}
 
-{% capture _css %}{% include styles/semantic-ui/accordion.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/breadcrumb.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/button.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/container.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/divider.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/grid.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/header.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/icon.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/input.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/item.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/label.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/list.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/menu.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/rail.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/reset.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/search.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/segment.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/sidebar.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/site.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/sticky.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/tab.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/table.css %}{% endcapture %}{{ _css | scssify }}
-{% capture _css %}{% include styles/semantic-ui/transition.css %}{% endcapture %}{{ _css | scssify }}
+{% include styles/cc-icons/cc-icons.min.css %}
+
+{% include styles/semantic-ui/accordion.min.css %}
+{% include styles/semantic-ui/breadcrumb.min.css %}
+{% include styles/semantic-ui/button.min.css %}
+{% include styles/semantic-ui/container.min.css %}
+{% include styles/semantic-ui/divider.min.css %}
+{% include styles/semantic-ui/grid.min.css %}
+{% include styles/semantic-ui/header.min.css %}
+{% include styles/semantic-ui/icon.min.css %}
+{% include styles/semantic-ui/input.min.css %}
+{% include styles/semantic-ui/item.min.css %}
+{% include styles/semantic-ui/label.min.css %}
+{% include styles/semantic-ui/list.min.css %}
+{% include styles/semantic-ui/menu.min.css %}
+{% include styles/semantic-ui/rail.min.css %}
+{% include styles/semantic-ui/reset.min.css %}
+{% include styles/semantic-ui/search.min.css %}
+{% include styles/semantic-ui/segment.min.css %}
+{% include styles/semantic-ui/sidebar.min.css %}
+{% include styles/semantic-ui/site.min.css %}
+{% include styles/semantic-ui/sticky.min.css %}
+{% include styles/semantic-ui/tab.min.css %}
+{% include styles/semantic-ui/table.min.css %}
+{% include styles/semantic-ui/transition.min.css %}
