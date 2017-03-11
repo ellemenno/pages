@@ -3,7 +3,7 @@ highlighter: rouge
 
 # https://github.com/penibelst/jekyll-compress-html
 compress_html:
-  comments:  ["<!--", "-->"]
+  comments:  ["<!-- ", " -->"]
 
 # https://jekyllrb.com/docs/configuration/
 permalink: pretty # for trailing slash urls (requires index.html inside)
