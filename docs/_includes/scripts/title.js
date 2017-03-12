@@ -6,4 +6,4 @@ set_resize_handler = function() {
   $(window).resize(update_dimensions);
 };
 
-$(set_resize_handler);
+$(window).on( "load", set_resize_handler)

@@ -10,4 +10,4 @@ pkg_search_init = function() {
   });
 };
 
-$(pkg_search_init);
+$(window).on( "load", pkg_search_init )
