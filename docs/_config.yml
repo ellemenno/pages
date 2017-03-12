@@ -13,5 +13,4 @@ sass:
   style: compressed
 
 # site globals
-package_root: api
 code_indent: '  ' # 2 space indent

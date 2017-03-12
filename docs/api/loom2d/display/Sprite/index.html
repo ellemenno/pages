@@ -3,40 +3,40 @@ layout: page
 title: Sprite
 
 class: Sprite
-package: [loom2d, display]
+module: [loom2d, display]
 class_modifiers: [public, static, final]
 ancestors:
   - class: DisplayObjectContainer
-    package: [loom2d, display]
+    module: [loom2d, display]
   - class: DisplayObject
-    package: [loom2d, display]
+    module: [loom2d, display]
   - class: EventDispatcher
-    package: [loom2d, events]
+    module: [loom2d, events]
   - class: Object
-    package: [system]
+    module: [system]
 descendants:
   - class: FeathersControl
-    package: [feathers, core]
+    module: [feathers, core]
   - class: Scale3Image
-    package: [feathers, display]
+    module: [feathers, display]
   - class: Scale9Image
-    package: [feathers, display]
+    module: [feathers, display]
   - class: TiledImage
-    package: [feathers, display]
+    module: [feathers, display]
   - class: Map
-    package: [loom, modestmaps]
+    module: [loom, modestmaps]
   - class: Tile
-    package: [loom, modestmaps, core]
+    module: [loom, modestmaps, core]
   - class: TileGrid
-    package: [loom, modestmaps, core]
+    module: [loom, modestmaps, core]
   - class: MarkerClip
-    package: [loom, modestmaps, overlays]
+    module: [loom, modestmaps, overlays]
   - class: TouchMarker
-    package: [loom2d, core]
+    module: [loom2d, core]
   - class: TMXMapSprite
-    package: [loom2d, tmx]
+    module: [loom2d, tmx]
   - class: SimpleLabel
-    package: [loom2d, ui]
+    module: [loom2d, ui]
 ---
 
 <!-- <div class="ui dividing right rail">
@@ -75,13 +75,15 @@ descendants:
 </div>
 </div> -->
 
+{% capture module_url %}{{ site.baseurl }}/{{ site.data.project.module_root }}{% endcapture %}
+
 <div id="heading" class="ui basic segment">
 <h1 class="ui dividing header">{{ page.class }}</h1>
 
 <div class="ui list">
   <div class="item">
     <i class="folder outline icon"></i>
-    <a class="content" href="{{ site.baseurl }}/{{ site.package_root }}/{{ page.package | join: '/' }}">{{ page.package | join: '.' }}</a>
+    <a class="content" href="{{ module_url }}/{{ page.module | join: '/' }}">{{ page.module | join: '.' }}</a>
   </div>
   <div class="item">
     <i class="file outline icon"></i>
@@ -94,7 +96,7 @@ descendants:
         <span class="section active">{{ page.class }}</span>
         {% for ancestor in page.ancestors %}
         <i class="arrow right icon divider"></i>
-        <a class="section" href="{{ site.baseurl }}/{{ site.package_root }}/{{ ancestor.package | join: '/' }}/{{ ancestor.class }}">{{ ancestor.class }}</a>
+        <a class="section" href="{{ module_url }}/{{ ancestor.module | join: '/' }}/{{ ancestor.class }}">{{ ancestor.class }}</a>
         {% endfor %}
       </div>
     </div>
@@ -104,7 +106,7 @@ descendants:
     <div class="content">
       {% assign content = '' %}
       {% for descendant in page.descendants %}
-        {% capture link %}<a class="section" href="{{ site.baseurl }}/{{ site.package_root }}/{{ descendant.package | join: '/' }}/{{ descendant.class }}">{{ descendant.class }}</a>{% endcapture %}
+        {% capture link %}<a class="section" href="{{ module_url }}/{{ descendant.module | join: '/' }}/{{ descendant.class }}">{{ descendant.class }}</a>{% endcapture %}
         {% unless forloop.last %}
           {% assign link = link | append: ', ' %}
         {% endunless %}

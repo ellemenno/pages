@@ -7,63 +7,29 @@
 <div class="ui fitted inverted divider"></div>
 
 <div id="collection-tabs" class="ui inverted stackable pointing secondary menu">
-  <a class="active item" data-tab="api">API</a>
-  <a class="item" data-tab="guides">Guides</a>
-  <a class="item" data-tab="examples">Examples</a>
+  {% for entry in site.data.docfiles %}
+  {% assign type = entry[0] %}
+  {% capture class %}{% if forloop.first %}active {% endif %}item{% endcapture %}
+  {% capture _ %}{{ type | slice: 0 }}{% endcapture %}
+  {% unless _ == '_' %}<a class="{{ class }}" data-tab="{{ type | downcase }}">{{ type }}</a>{% endunless %}
+  {% endfor %}
 </div>
 
-
-<div class="ui active inverted tab segment" data-tab="api">
-
-<h4 class="ui header">package api</h4>
+{% for entry in site.data.docfiles %}
+{% assign type = entry[0] %}
+{% assign files = entry[1] %}
+{% capture class %}ui {% if forloop.first %}active {% endif %}inverted tab segment{% endcapture %}
+{% capture _ %}{{ type | slice: 0 }}{% endcapture %}
+{% unless _ == '_' %}<div class="{{ class }}" data-tab="{{ type | downcase }}">
+<h4 class="ui header">{{ type }}</h4>
 <div class="ui inverted vertical fluid accordion text menu">
 
-<div class="title"><i class="dropdown icon"></i>loom2d</div>
 <div class="content">
-  <div class="title"><i class="dropdown icon"></i>animation</div>
-  <div class="title"><i class="dropdown icon"></i>core</div>
-  <div class="title"><i class="dropdown icon"></i>display</div>
-  <div class="content">
-    <a class="item" href="{{ site.baseurl }}/api/loom2d/display/DisplayObject/">DisplayObject</a>
-    <a class="item" href="{{ site.baseurl }}/api/loom2d/display/Quad/">Quad</a>
-    <a class="item" href="{{ site.baseurl }}/api/loom2d/display/Sprite/">Sprite</a>
-  </div>
-  <div class="title"><i class="dropdown icon"></i>events</div>
-  <div class="title"><i class="dropdown icon"></i>math</div>
-  <div class="title"><i class="dropdown icon"></i>tests</div>
-  <div class="title"><i class="dropdown icon"></i>text</div>
-  <div class="title"><i class="dropdown icon"></i>textures</div>
-  <div class="title"><i class="dropdown icon"></i>tmx</div>
-  <div class="title"><i class="dropdown icon"></i>ui</div>
-  <div class="title"><i class="dropdown icon"></i>utils</div>
-</div>
-
-<div class="title"><i class="dropdown icon"></i>system</div>
-<div class="content">
-  <a class="item" href="{{ site.baseurl }}/api/system/Vector/">Vector</a>
-</div>
-
+{% for file in files %}
+{% capture path %}{{ site.baseurl }}/{{ type | downcase }}/{{ file.module | join: '/' }}/{{ file.name }}{% endcapture %}
+  <a class="very tight item" href="{{ path }}">{{ file.module | join: '.' }}.{{ file.name }}</a>
+{% endfor %}
 </div>
 </div>
-
-<div class="ui inverted tab segment" data-tab="guides">
-  guides
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-</div>
-
-<div class="ui inverted tab segment" data-tab="examples">
-  examples
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-  <a class="item">item</a>
-</div>
+</div>{% endunless %}
+{% endfor %}

@@ -31,6 +31,16 @@
   }
 }
 
+/* additions to semantic-ui */
+.ui.vertical.text.menu .tight.item {
+  margin: 0;
+  padding: .5em;
+}
+.ui.vertical.text.menu .very.tight.item {
+  margin: 0;
+  padding: .125em;
+}
+
 /* custom styling */
 #sidebar-retractable {
   width: 15rem;
