@@ -1,182 +1,40 @@
 ---
-layout: page
+layout: api
 title: Sprite
 
-class: Sprite
+type: Sprite
 module: [loom2d, display]
-class_modifiers: [public, static, final]
+class_modifiers: [public, native]
 ancestors:
-  - class: DisplayObjectContainer
+  - type: DisplayObjectContainer
     module: [loom2d, display]
-  - class: DisplayObject
+  - type: DisplayObject
     module: [loom2d, display]
-  - class: EventDispatcher
+  - type: EventDispatcher
     module: [loom2d, events]
-  - class: Object
+  - type: Object
     module: [system]
 descendants:
-  - class: FeathersControl
+  - type: FeathersControl
     module: [feathers, core]
-  - class: Scale3Image
+  - type: Scale3Image
     module: [feathers, display]
-  - class: Scale9Image
+  - type: Scale9Image
     module: [feathers, display]
-  - class: TiledImage
+  - type: TiledImage
     module: [feathers, display]
-  - class: Map
+  - type: Map
     module: [loom, modestmaps]
-  - class: Tile
+  - type: Tile
     module: [loom, modestmaps, core]
-  - class: TileGrid
+  - type: TileGrid
     module: [loom, modestmaps, core]
-  - class: MarkerClip
+  - type: MarkerClip
     module: [loom, modestmaps, overlays]
-  - class: TouchMarker
+  - type: TouchMarker
     module: [loom2d, core]
-  - class: TMXMapSprite
+  - type: TMXMapSprite
     module: [loom2d, tmx]
-  - class: SimpleLabel
+  - type: SimpleLabel
     module: [loom2d, ui]
 ---
-
-<!-- <div class="ui dividing right rail">
-<div class="ui sticky">
-<h4 class="header">table of contents</h4>
-<div class="ui vertical following fluid accordion text menu">
-
-<div class="active title">
-  <i class="dropdown icon"></i>
-  section
-</div>
-<div class="active content">
-  <a class="item" href="#link-a">link-a</a>
-  <a class="item" href="#link-b">link-b</a>
-
-  <div class="title">
-    <i class="dropdown icon"></i>
-    sub-section
-  </div>
-  <div class="content">
-    <a class="item" href="#link-a">link-a</a>
-    <a class="item" href="#link-b">link-b</a>
-  </div>
-</div>
-
-<div class="title">
-  <i class="dropdown icon"></i>
-  section
-</div>
-<div class="content">
-  <a class="item" href="#link-a">link-a</a>
-  <a class="item" href="#link-b">link-b</a>
-</div>
-
-</div>
-</div>
-</div> -->
-
-{% capture module_url %}{{ site.baseurl }}/{{ site.data.project.module_root }}{% endcapture %}
-
-<div id="heading" class="ui basic segment">
-<h1 class="ui dividing header">{{ page.class }}</h1>
-
-<div class="ui list">
-  <div class="item">
-    <i class="folder outline icon"></i>
-    <a class="content" href="{{ module_url }}/{{ page.module | join: '/' }}">{{ page.module | join: '.' }}</a>
-  </div>
-  <div class="item">
-    <i class="file outline icon"></i>
-    <div class="content">{{ page.class_modifiers | join: ' ' }} {{ page.class }}</div>
-  </div>
-  <div class="item">
-    <i class="vertically flipped sitemap icon"></i>
-    <div class="content">
-      <div class="ui breadcrumb">
-        <span class="section active">{{ page.class }}</span>
-        {% for ancestor in page.ancestors %}
-        <i class="arrow right icon divider"></i>
-        <a class="section" href="{{ module_url }}/{{ ancestor.module | join: '/' }}/{{ ancestor.class }}">{{ ancestor.class }}</a>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <i class="sitemap icon"></i>
-    <div class="content">
-      {% assign content = '' %}
-      {% for descendant in page.descendants %}
-        {% capture link %}<a class="section" href="{{ module_url }}/{{ descendant.module | join: '/' }}/{{ descendant.class }}">{{ descendant.class }}</a>{% endcapture %}
-        {% unless forloop.last %}
-          {% assign link = link | append: ', ' %}
-        {% endunless %}
-        {% assign content = content | append: link | strip | append: '
-      ' %}
-      {% endfor %}
-      {{ content | strip }}
-    </div>
-  </div>
-</div>
-
-<h3 class="ui header">Class Description</h3>
-<div class="ui basic segment">
-{% capture description %}{% include_relative description.md %}{% endcapture %}
-{{ description | replace: '⇥', site.code_indent | markdownify }}
-</div>
-
-</div>
-
-<div id="listing" class="ui basic segment">
-<h2 class="ui dividing header">Listing</h2>
-
-<h3 class="ui header">Fields</h3>
-<div class="ui segments">
-  <div class="ui segment">
-    <h4><code>clipRect:Rectangle</code></h4>
-    <p>description</p>
-  </div>
-</div>
-
-<h3 class="ui header">Events</h3>
-<h3 class="ui header">Properties</h3>
-<h3 class="ui header">Delegates</h3>
-
-<h3 class="ui header">Methods</h3>
-<div class="ui segments">
-  <div class="ui segment">
-    <h4><code>Sprite()</code></h4>
-    <p>Creates a new Sprite instance</p>
-  </div>
-  <div class="ui segment">
-    <h4><code>flatten():void</code></h4>
-    <p>description</p>
-  </div>
-  <div class="ui segment">
-    <h4><code>unflatten():void</code></h4>
-    <p>description</p>
-  </div>
-</div>
-</div>
-
-<div id="reference" class="ui basic segment">
-<h2 class="ui dividing header">Reference</h2>
-<h3 class="ui header">Fields</h3>
-<h3 class="ui header">Events</h3>
-<h3 class="ui header">Properties</h3>
-<h3 class="ui header">Delegates</h3>
-<h3 class="ui header">Methods</h3>
-</div>
-
-<script type="text/javascript">
-toc_init = function() {
-  $('.ui.accordion').accordion();
-  // $('.ui.sticky')
-  // .sticky({
-  //   context: '#reference'
-  // })
-  // ;
-};
-
-$(toc_init); // add to jQ onReady()
-</script>
-

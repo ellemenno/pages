@@ -9,12 +9,12 @@ In Starling, this class adds clip rect and flattening support. In Loom, it's the
 ```as3
 /* code snippet */
 public function foo():void {
-⇥var x:Number = 0;
-⇥var f:Boolean = false;
-⇥var s:String = 'abcde';
-⇥if (!f) {
-⇥⇥trace('true');
-⇥}
+   ⇥var x:Number = 0;
+   ⇥var f:Boolean = false;
+   ⇥var s:String = 'abcde';
+   ⇥if (!f) {
+   ⇥   ⇥trace('true');
+   ⇥}
 }
 ```
 
