@@ -2,10 +2,10 @@
 testing github pages for /docs
 
 ## ref
+
 - Liquid docs: http://shopify.github.io/liquid/
 - Jekyll docs: http://jekyllrb.com/docs/home/
 - Jekyll docs source: https://github.com/jekyll/jekyll/tree/master/docs
-
 - Jekyll defaults: http://jekyllrb.com/docs/configuration/#default-configuration
 - Github pages defaults: https://help.github.com/articles/configuring-jekyll/
 
