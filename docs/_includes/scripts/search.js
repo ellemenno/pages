@@ -1,11 +1,18 @@
 pkg_search_init = function() {
   var search_content = [
-    {% for _entry in site.data.docfiles %}
-    {% assign _type = _entry[0] %}
-    {% assign _files = _entry[1] %}
-    {% for _file in _files %}{% if _file.name %}{ title: '{{ _file.name }}' },
-    {% endif %}{% endfor %}
-    {% endfor %}
+  {% for collection in site.collections %}
+  {% unless collection.label == 'posts' %}
+  {% for doc in collection.docs %}
+    {% case collection.label %}
+      {% when 'api' %}
+         {% assign title = doc.name %}
+      {% else %}
+         {% assign title = doc.title %}
+    {% endcase %}
+    { title: '{{ title }}' },
+  {% endfor %}
+  {% endunless %}
+  {% endfor %}
   ];
 
   $('#search').search({ source: search_content });

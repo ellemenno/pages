@@ -1,16 +1,30 @@
 # https://help.github.com/articles/configuring-jekyll/#configuration-settings-you-cannot-change
 highlighter: rouge
 
-# https://github.com/penibelst/jekyll-compress-html
-compress_html:
-  comments:  ["<!-- ", " -->"]
-
 # https://jekyllrb.com/docs/configuration/
 permalink: pretty # for trailing slash urls (requires index.html inside)
+collections:
+  api: # api pages are robot-made, so keep them in underscore land
+    output: true
+    title: API
+    permalink: /:collection/:path/
+  examples:
+    output: true
+    title: Examples
+    permalink: /:collection/:path/
+  guides:
+    output: true
+    title: Guides
+    permalink: /:collection/:path/
+
+# https://github.com/penibelst/jekyll-compress-html
+compress_html:
+  comments: ["<!-- ", " -->"]
 
 # https://jekyllrb.com/docs/assets/
 sass:
-  style: compressed
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 # site globals
 code_indent: '  ' # 2 space indent
+module_root: api  # the api collection houses the code modules

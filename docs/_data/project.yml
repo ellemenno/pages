@@ -2,5 +2,3 @@ name: 'docs test'
 repo: 'https://ellemenno.github.io/pages/'
 owner: ellemenno
 version: '0.0.0'
-
-module_root: api

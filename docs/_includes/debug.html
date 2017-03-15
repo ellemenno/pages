@@ -1,0 +1,33 @@
+<h4>site.collections</h4>
+
+{% for collection in site.collections %}
+<ul>
+{% unless collection.label == 'posts' %}
+<li>{{ collection.label }}</li>
+<ul>
+{% for doc in collection.docs %}
+<li>{{ doc.title }} - {{ doc.url }}</li>
+{% endfor %}
+</ul>
+{% endunless %}
+</ul>
+{% endfor %}
+
+<h4>site.api</h4>
+
+<ul>
+{% for file in site.api %}
+<li>{{ file.type }} - {{ file.url }}</li>
+{% endfor %}
+</ul>
+
+
+<h4>loom2d.display</h4>
+{% assign this_module = 'display' %}
+<ul>
+{% for file in site.api %}
+{% if file.module.last == this_module %}
+<li>{{ file.type }} - {{ file.url }}</li>
+{% endif %}
+{% endfor %}
+</ul>

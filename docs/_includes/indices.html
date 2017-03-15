@@ -7,29 +7,33 @@
 <div class="ui fitted inverted divider"></div>
 
 <div id="collection-tabs" class="ui inverted stackable pointing secondary menu">
-  {% for entry in site.data.docfiles %}
-  {% assign type = entry[0] %}
-  {% capture class %}{% if forloop.first %}active {% endif %}item{% endcapture %}
-  {% capture _ %}{{ type | slice: 0 }}{% endcapture %}
-  {% unless _ == '_' %}<a class="{{ class }}" data-tab="{{ type | downcase }}">{{ type }}</a>{% endunless %}
-  {% endfor %}
+{% for collection in site.collections %}
+{% unless collection.label == 'posts' %}
+{% capture class %}{% if forloop.first %}active {% endif %}item{% endcapture %}
+  <a class="{{ class }}" data-tab="{{ collection.label | downcase }}">{{ collection.title }}</a>
+{% endunless %}
+{% endfor %}
 </div>
 
-{% for entry in site.data.docfiles %}
-{% assign type = entry[0] %}
-{% assign files = entry[1] %}
+{% for collection in site.collections %}
+{% unless collection.label == 'posts' %}
 {% capture class %}ui {% if forloop.first %}active {% endif %}inverted tab segment{% endcapture %}
-{% capture _ %}{{ type | slice: 0 }}{% endcapture %}
-{% unless _ == '_' %}<div class="{{ class }}" data-tab="{{ type | downcase }}">
-<h4 class="ui header">{{ type }}</h4>
+<div class="{{ class }}" data-tab="{{ collection.label | downcase }}">
+<h4 class="ui header">{{ collection.title }}</h4>
 <div class="ui inverted vertical fluid accordion text menu">
 
 <div class="content">
-{% for file in files %}
-{% capture path %}{{ site.baseurl }}/{{ type | downcase }}/{{ file.module | join: '/' }}/{{ file.name }}{% endcapture %}
-  <a class="very tight item" href="{{ path }}">{{ file.module | join: '.' }}.{{ file.name }}</a>
+{% for doc in collection.docs %}
+  {% case collection.label %}
+    {% when 'api' %}
+       {% capture link %}{{ doc.module | join: '.' }}.{{ doc.name }}{% endcapture %}
+    {% else %}
+       {% capture link %}{{ doc.title }}{% endcapture %}
+  {% endcase %}
+  <a class="very tight item" href="{{ doc.url }}">{{ link }}</a>
 {% endfor %}
 </div>
 </div>
-</div>{% endunless %}
+</div>
+{% endunless %}
 {% endfor %}
