@@ -4,7 +4,7 @@ highlighter: rouge
 # https://jekyllrb.com/docs/configuration/
 permalink: pretty # for trailing slash urls (requires index.html inside)
 collections:
-  api: # api pages are robot-made, so keep them in underscore land
+  api:
     output: true
     title: API
     permalink: /:collection/:path/

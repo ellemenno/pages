@@ -26,9 +26,13 @@
 {% for doc in collection.docs %}
   {% case collection.label %}
     {% when 'api' %}
-       {% capture link %}{{ doc.module | join: '.' }}.{{ doc.name }}{% endcapture %}
+      {% if doc.name %}
+        {% capture link %}{{ doc.module | join: '.' }}.{{ doc.name }}{% endcapture %}
+      {% else %}
+        {% capture link %}<strong>{{ doc.module | join: '.' }}</strong>{% endcapture %}
+      {% endif %}
     {% else %}
-       {% capture link %}{{ doc.title }}{% endcapture %}
+      {% capture link %}{{ doc.title }}{% endcapture %}
   {% endcase %}
   <a class="very tight item" href="{{ doc.url }}">{{ link }}</a>
 {% endfor %}

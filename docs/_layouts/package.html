@@ -1,0 +1,94 @@
+---
+layout: page
+---
+
+{% capture module_url %}{{ site.baseurl }}/{{ site.module_root }}/{{ page.module | join: '/' }}{% endcapture %}
+
+<div id="heading" class="ui basic segment">
+<h1 class="ui dividing header">{{ page.module | join: '.' }}</h1>
+</div>
+
+{% if page.enums %}
+<div id="reference" class="ui basic segment">
+<h2 class="ui dividing header">Enums</h2>
+
+<div class="ui list">
+  {% assign list = page.enums %}
+  {% for item in list %}
+    {% capture content %}
+    <a class="header" href="{{ module_url }}/{{ item.name }}">{{ item.name }}</a>
+    <div class="description">{{ item.description }}</div>
+    {% endcapture %}
+  <div class="item">{{ content }}</div>
+  {% endfor %}
+</div>
+</div>
+{% endif %}
+
+{% if page.structs %}
+<div id="reference" class="ui basic segment">
+<h2 class="ui dividing header">Structs</h2>
+
+<div class="ui list">
+  {% assign list = page.structs %}
+  {% for item in list %}
+    {% capture content %}
+    <a class="header" href="{{ module_url }}/{{ item.name }}">{{ item.name }}</a>
+    <div class="description">{{ item.description }}</div>
+    {% endcapture %}
+  <div class="item">{{ content }}</div>
+  {% endfor %}
+</div>
+</div>
+{% endif %}
+
+{% if page.interfaces %}
+<div id="reference" class="ui basic segment">
+<h2 class="ui dividing header">Interfaces</h2>
+
+<div class="ui list">
+  {% assign list = page.interfaces %}
+  {% for item in list %}
+    {% capture content %}
+    <a class="header" href="{{ module_url }}/{{ item.name }}">{{ item.name }}</a>
+    <div class="description">{{ item.description }}</div>
+    {% endcapture %}
+  <div class="item">{{ content }}</div>
+  {% endfor %}
+</div>
+</div>
+{% endif %}
+
+{% if page.delegates %}
+<div id="reference" class="ui basic segment">
+<h2 class="ui dividing header">Delegates</h2>
+
+<div class="ui list">
+  {% assign list = page.delegates %}
+  {% for item in list %}
+    {% capture content %}
+    <a class="header" href="{{ module_url }}/{{ item.name }}">{{ item.name }}</a>
+    <div class="description">{{ item.description }}</div>
+    {% endcapture %}
+  <div class="item">{{ content }}</div>
+  {% endfor %}
+</div>
+</div>
+{% endif %}
+
+{% if page.classes %}
+<div id="reference" class="ui basic segment">
+<h2 class="ui dividing header">Classes</h2>
+
+<div class="ui list">
+  {% assign list = page.classes %}
+  {% for item in list %}
+    {% capture content %}
+    <a class="header" href="{{ module_url }}/{{ item.name }}">{{ item.name }}</a>
+    <div class="description">{{ item.description }}</div>
+    {% endcapture %}
+  <div class="item">{{ content }}</div>
+  {% endfor %}
+</div>
+</div>
+{% endif %}
