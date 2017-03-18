@@ -34,7 +34,7 @@
     {% else %}
       {% capture link %}{{ doc.title }}{% endcapture %}
   {% endcase %}
-  <a class="very tight item" href="{{ doc.url }}">{{ link }}</a>
+  <a class="very tight item" href="{{ site.baseurl }}{{ doc.url }}">{{ link }}</a>
 {% endfor %}
 </div>
 </div>
