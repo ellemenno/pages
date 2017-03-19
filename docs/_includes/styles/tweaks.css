@@ -32,6 +32,9 @@
 }
 
 /* additions to semantic-ui */
+i.icon.interface:before {
+  content: "\f22c" /* same as 'neuter' */
+}
 .ui.vertical.text.menu .tight.item {
   margin: 0;
   padding: .5em;
