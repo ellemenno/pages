@@ -1,16 +1,19 @@
 ---
 layout: package
 
-module: [system]
+module: system
 submodules: [application, debugger, errors, metrics, platform, reflection, socket, utils, xml]
 
 enums:
   - name: JSONType
     description: "Types supported by the Loom JSON parser"
+    declaration: system.JSON
 delegates:
   - name: TickDelegate
     description: "Callback when ticks occur in the VM."
+    declaration: system.VM
 classes:
   - name: Vector
     description: "A Vector is an ordered collection of items where every item is of the same type."
+    declaration: system.Vector
 ---

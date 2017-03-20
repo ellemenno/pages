@@ -2,39 +2,39 @@
 layout: type
 
 name: Sprite
-module: [loom2d, display]
+module: loom2d.display
 type: class
-type_modifiers: [public, native]
+type_attributes: [public, native]
 ancestors:
   - name: DisplayObjectContainer
-    module: [loom2d, display]
+    module: loom2d.display
   - name: DisplayObject
-    module: [loom2d, display]
+    module: loom2d.display
   - name: EventDispatcher
-    module: [loom2d, events]
+    module: loom2d.events
   - name: Object
-    module: [system]
+    module: system
 descendants:
   - name: FeathersControl
-    module: [feathers, core]
+    module: feathers.core
   - name: Scale3Image
-    module: [feathers, display]
+    module: feathers.display
   - name: Scale9Image
-    module: [feathers, display]
+    module: feathers.display
   - name: TiledImage
-    module: [feathers, display]
+    module: feathers.display
   - name: Map
-    module: [loom, modestmaps]
+    module: loom.modestmaps
   - name: Tile
-    module: [loom, modestmaps, core]
+    module: loom.modestmaps.core
   - name: TileGrid
-    module: [loom, modestmaps, core]
+    module: loom.modestmaps.core
   - name: MarkerClip
-    module: [loom, modestmaps, overlays]
+    module: loom.modestmaps.overlays
   - name: TouchMarker
-    module: [loom2d, core]
+    module: loom2d.core
   - name: TMXMapSprite
-    module: [loom2d, tmx]
+    module: loom2d.tmx
   - name: SimpleLabel
-    module: [loom2d, ui]
+    module: loom2d.ui
 ---

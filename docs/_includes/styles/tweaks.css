@@ -43,6 +43,12 @@ i.icon.interface:before {
   margin: 0;
   padding: .125em;
 }
+.ui.tight.header {
+  margin-bottom: .5em;
+}
+.ui.tight.segment {
+  padding: .5em;
+}
 
 /* custom styling */
 #sidebar-retractable {

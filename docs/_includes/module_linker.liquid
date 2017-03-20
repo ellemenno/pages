@@ -1,0 +1,24 @@
+{% comment %}
+
+Module linker
+  turns foo.bar.baz into:
+  <a href="/path/to/foo/">foo</a>.<a href="/path/to/foo/bar">bar</a>.<a href="/path/to/foo/bar/baz">baz</a>
+
+params:
+  module="foo.bar.baz"
+  base_url="/path/to"
+  markdown='true' (optional, defaults to html)
+
+{% endcomment %}{%
+assign modules = include.module | split: '.' %}{%
+assign u = include.base_url %}{%
+for m in modules %}{%
+  assign u = u | append: '/' | append: m
+  %}{% if include.markdown == 'true'
+    %}[{{ m }}]({{ u }}){%
+  else
+    %}<a href="{{ u }}">{{ m }}</a>{%
+  endif %}{%
+  unless forloop.last %}.{% endunless %}{%
+endfor
+%}

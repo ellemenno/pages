@@ -1,33 +1,37 @@
 ---
 layout: package
 
-module: [loom2d, display]
+module: loom2d.display
 
 enums:
   - name: BlendMode
     description: "An enumeration that defines the supported visual blend mode effects"
+    declaration: loom2d.display.BlendMode
   - name: TextAlign
-    description: "Text alignment flags used by the Graphics class"
+    description: "Text alignment flags used by the `Graphics` class"
+    declaration: loom2d.display.Graphics
   - name: StageScaleMode
-    description: "Set the scaling behavior for Stage"
+    description: "Set the scaling behavior for `Stage`"
+    declaration: loom2d.display.Stage
 delegates:
   - name: KeyDelegate
-    description: ""
+    declaration: loom2d.display.Stage
   - name: GameControllerAddedDelegate
-    description: ""
+    declaration: loom2d.display.Stage
   - name: GameControllerRemovedDelegate
-    description: ""
+    declaration: loom2d.display.Stage
   - name: HardwareKeyDelegate
-    description: ""
+    declaration: loom2d.display.Stage
   - name: TouchDelegate
-    description: ""
+    declaration: loom2d.display.Stage
   - name: ScrollWheelDelegate
-    description: ""
+    declaration: loom2d.display.Stage
   - name: OrientationChangeDelegate
-    description: ""
+    declaration: loom2d.display.Stage
   - name: SizeChangeDelegate
-    description: ""
+    declaration: loom2d.display.Stage
 classes:
   - name: Sprite
-    description: "In Starling, this class adds clip rect and flattening support. In Loom, it's the topmost container class."
+    description: "In Starling, this class adds clip rect and flattening support. In Loom.it's the topmost container class."
+    declaration: loom2d.display.Sprite
 ---

@@ -27,9 +27,9 @@
   {% case collection.label %}
     {% when 'api' %}
       {% if doc.name %}
-        {% capture link %}{{ doc.module | join: '.' }}.{{ doc.name }}{% endcapture %}
+        {% capture link %}{{ doc.module }}.{{ doc.name }}{% endcapture %}
       {% else %}
-        {% capture link %}<strong>{{ doc.module | join: '.' }}</strong>{% endcapture %}
+        {% capture link %}<strong>{{ doc.module }}</strong>{% endcapture %}
       {% endif %}
     {% else %}
       {% capture link %}{{ doc.title }}{% endcapture %}

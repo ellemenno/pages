@@ -2,10 +2,50 @@
 layout: type
 
 name: Vector
-module: [system]
+module: system
 type: class
-type_modifiers: [final]
+type_attributes: [final]
 ancestors:
   - name: Object
-    module: [system]
+    module: system
+constructor:
+  name: Vector
+  attributes: [public]
+  description: "Instantiate a vector, optionally pre-allocated to hold the specified number of elements"
+  parameters:
+    - name: size
+      type: system.Number
+fields:
+  - name: CASEINSENSITIVE
+    attributes: [public, static, const]
+    type: system.Number
+    description: "Sorting constant - String comparison will ignore case.\n\n* `a` will be considered equal to `A`."
+  - name: DESCENDING
+    attributes: [public, static, const]
+    type: system.Number
+    description: "Sorting constant - The result will be in descending order.\n\n* `c` will be placed before `a`.\n* `3` will be placed before `1`.\n* `3` will also be placed before `11` unless combined with `NUMERIC`."
+properties:
+  - name: length
+    attributes: [public, native]
+    type: system.Number
+    description: "Reading from this property retrieves the number of elements in the Vector. The interval of valid indices is [0, length-1].\n\nWriting to this property sets the length of the Vector.\n\nIf the new length is shorter than before, all objects at indices greater than or equal to the new length are removed from the Vector.\nIf the new length is longer than before, indices beyond the previous length will be undefined until values are assigned to them.\n\n@param value The new length for the Vector to assume. Shorter lengths delete values, longer lengths add undefined values."
+    TODO: "Does the compiler not record doc strings for get and set methods individually? Vector.ls has them defined, but only the getter seems to show up in the loomlib."
+methods:
+  - name: join
+    attributes: [public]
+    type: system.String
+    description: "Converts the elements in the Vector to strings, inserts the specified separator between the elements, concatenates them, and returns the resulting string."
+    parameters:
+      - name: sep
+        type: system.String
+        default_value: ","
+  - name: push
+    attributes: [public]
+    type: system.Number
+    description: "Adds one or more elements to the end of the Vector and returns the new length of the Vector.\n\n@param args Arbitrary list of items to add to the Vector.\n@return The new length of the Vector."
+    parameters:
+      - name: args
+        is_var_args: true
+        type: system.Vector
+        template_types: [system.Object]
 ---

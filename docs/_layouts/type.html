@@ -46,19 +46,11 @@ layout: page
 <div class="ui list">
   <div class="item">
     <i class="folder outline icon"></i>
-    <div class="content">
-    {%
-    assign u = module_url %}{%
-    for m in page.module %}{%
-      assign u = u | append: '/' | append: m
-      %}<a href="{{ u }}">{{ m }}</a>{% unless forloop.last %}.{% endunless %}{%
-    endfor
-    %}
-    </div>
+    <div class="content">{% include module_linker.liquid module=page.module base_url=module_url %}</div>
   </div>
   <div class="item">
     <i class="file outline icon"></i>
-    <div class="content">{{ page.type_modifiers | join: ' ' }} {{ page.type }}</div>
+    <div class="content">{{ page.type_attributes | join: ' ' }} {{ page.type }}</div>
   </div>
   {% if page.implements %}
   <div class="item">
@@ -66,7 +58,7 @@ layout: page
     <div class="content">
       {% assign content = '' %}
       {% for interface in page.implements %}
-        {% capture link %}<a class="section" href="{{ module_url }}/{{ interface.module | join: '/' }}/{{ interface.name }}">{{ interface.name }}</a>{% endcapture %}
+        {% capture link %}<a class="section" href="{{ module_url }}/{{ interface.module | split: '.' | join: '/' }}/{{ interface.name }}">{{ interface.name }}</a>{% endcapture %}
         {% unless forloop.last %}
           {% assign link = link | append: ', ' %}
         {% endunless %}
@@ -85,7 +77,7 @@ layout: page
         <span class="section active">{{ page.name }}</span>
         {% for ancestor in page.ancestors %}
         <i class="arrow right icon divider"></i>
-        <a class="section" href="{{ module_url }}/{{ ancestor.module | join: '/' }}/{{ ancestor.name }}">{{ ancestor.name }}</a>
+        <a class="section" href="{{ module_url }}/{{ ancestor.module | split: '.' | join: '/' }}/{{ ancestor.name }}">{{ ancestor.name }}</a>
         {% endfor %}
       </div>
     </div>
@@ -97,7 +89,7 @@ layout: page
     <div class="content">
       {% assign content = '' %}
       {% for descendant in page.descendants %}
-        {% capture link %}<a class="section" href="{{ module_url }}/{{ descendant.module | join: '/' }}/{{ descendant.name }}">{{ descendant.name }}</a>{% endcapture %}
+        {% capture link %}<a class="section" href="{{ module_url }}/{{ descendant.module | split: '.' | join: '/' }}/{{ descendant.name }}">{{ descendant.name }}</a>{% endcapture %}
         {% unless forloop.last %}
           {% assign link = link | append: ', ' %}
         {% endunless %}
@@ -110,8 +102,8 @@ layout: page
   {% endif %}
 </div>
 
+<div id="description" class="ui basic segment">
 <h3 class="ui header">{{ page.type | capitalize }} Description</h3>
-<div class="ui basic segment">
 {% capture description_file %}_{{ page.name }}-description.md{% endcapture %}
 {% capture description %}{% include_relative {{ description_file }} %}{% endcapture %}
 {{ description | replace: '   ⇥', '⇥' | replace: '⇥', site.code_indent | markdownify }}
@@ -119,46 +111,55 @@ layout: page
 
 </div>
 
-<div id="listing" class="ui basic segment">
+<div class="ui basic segment">
+<a class="anchor" id="listing"></a>
 <h2 class="ui dividing header">Listing</h2>
 
-<h3 class="ui header">Fields</h3>
-<div class="ui segments">
-  <div class="ui segment">
-    <h4><code>clipRect:Rectangle</code></h4>
-    <p>description</p>
-  </div>
+{% capture newline %}
+{% endcapture %}
+
+{% assign attr = "fields|properties|methods" | split: '|'  %}
+{% for a in attr %}
+
+{% if page[a] %}
+<h3 class="ui tight header">{{ a | capitalize }}</h3>
+
+{% comment %}
+name
+attributes
+type
+description
+parameters:
+  - name: args
+    is_var_args: true
+    type: system.Vector
+    template_types: [system.Object]
+    default_value: ","
+{% endcomment %}
+
+{% assign list = page[a] %}
+{% for item in list %}
+  {% capture params %}{% if item.parameters %}({%
+    for p in item.parameters
+      %}{{ p.name }}:{{ p.type }}{%
+      unless forloop.last %}, {% endunless %}{%
+    endfor
+  %}){% endif %}{% endcapture %}
+  {% capture signature %}<span class="ui secondary text">{{ item.attributes | join: ' ' }}</span> <strong><a href="#">{{ item.name }}</a></strong>{{ params }}:{{ item.type }}{% endcapture %}
+  {% assign d_lines = item.description | split: newline %}
+  {% capture content %}{{ signature }}{{ d_lines | first | markdownify }}{% endcapture %}
+  <div class="ui vertical tight segment">{{ content }}</div>
+{% endfor %}
+{% endif %}
+{% endfor %}
+
 </div>
 
-<h3 class="ui header">Events</h3>
-<h3 class="ui header">Properties</h3>
-<h3 class="ui header">Delegates</h3>
 
-<h3 class="ui header">Methods</h3>
-<div class="ui segments">
-  <div class="ui segment">
-    <h4><code>Sprite()</code></h4>
-    <p>Creates a new Sprite instance</p>
-  </div>
-  <div class="ui segment">
-    <h4><code>flatten():void</code></h4>
-    <p>description</p>
-  </div>
-  <div class="ui segment">
-    <h4><code>unflatten():void</code></h4>
-    <p>description</p>
-  </div>
-</div>
+<div id="details" class="ui basic segment">
+<h2 class="ui dividing header">Details</h2>
 </div>
 
-<div id="reference" class="ui basic segment">
-<h2 class="ui dividing header">Reference</h2>
-<h3 class="ui header">Fields</h3>
-<h3 class="ui header">Properties</h3>
-<h3 class="ui header">Events</h3>
-<h3 class="ui header">Delegates</h3>
-<h3 class="ui header">Methods</h3>
-</div>
 
 <script type="text/javascript">
 toc_init = function() {
