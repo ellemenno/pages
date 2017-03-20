@@ -141,13 +141,13 @@ parameters:
 {% for item in list %}
   {% capture params %}{% if item.parameters %}({%
     for p in item.parameters
-      %}{{ p.name }}:{{ p.type }}{%
+      %}{{ p.name }}:{% include module_linker.liquid module=p.type base_url=module_url %}{%
       unless forloop.last %}, {% endunless %}{%
     endfor
   %}){% endif %}{% endcapture %}
-  {% capture signature %}<span class="ui secondary text">{{ item.attributes | join: ' ' }}</span> <strong><a href="#">{{ item.name }}</a></strong>{{ params }}:{{ item.type }}{% endcapture %}
+  {% capture signature %}{{ item.attributes | join: ' ' }} <strong><a href="#">{{ item.name }}</a></strong>{{ params }}:{% include module_linker.liquid module=item.type base_url=module_url %}{% endcapture %}
   {% assign d_lines = item.description | split: newline %}
-  {% capture content %}{{ signature }}{{ d_lines | first | markdownify }}{% endcapture %}
+  {% capture content %}<code>{{ signature }}</code>{{ d_lines | first | markdownify }}{% endcapture %}
   <div class="ui vertical tight segment">{{ content }}</div>
 {% endfor %}
 {% endif %}
