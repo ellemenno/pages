@@ -28,7 +28,7 @@ properties:
   - name: length
     attributes: [public, native]
     type: system.Number
-    description: "Reading from this property retrieves the number of elements in the Vector. The interval of valid indices is [0, length-1].\n\nWriting to this property sets the length of the Vector.\n\nIf the new length is shorter than before, all objects at indices greater than or equal to the new length are removed from the Vector.\nIf the new length is longer than before, indices beyond the previous length will be undefined until values are assigned to them.\n\n@param value The new length for the Vector to assume. Shorter lengths delete values, longer lengths add undefined values."
+    description: "Reading from this property retrieves the number of elements in the Vector. The interval of valid indices is `[0, length-1]`.\n\nWriting to this property sets the length of the Vector.\n\nIf the new length is shorter than before, all objects at indices greater than or equal to the new length are removed from the Vector.\nIf the new length is longer than before, indices beyond the previous length will be undefined until values are assigned to them.\n\n@param value The new length for the Vector to assume. Shorter lengths delete values, longer lengths add undefined values."
     TODO: "Does the compiler not record doc strings for get and set methods individually? Vector.ls has them defined, but only the getter seems to show up in the loomlib."
 methods:
   - name: join
@@ -38,7 +38,7 @@ methods:
     parameters:
       - name: sep
         type: system.String
-        default_value: ","
+        default_value: '","'
   - name: push
     attributes: [public]
     type: system.Number
