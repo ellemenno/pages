@@ -111,8 +111,7 @@ layout: page
 
 </div>
 
-<div class="ui basic segment">
-<a class="anchor" id="listing"></a>
+<div id="listing" class="ui basic segment">
 <h2 class="ui dividing header">Listing</h2>
 
 {% capture newline %}
@@ -120,35 +119,26 @@ layout: page
 
 {% assign attr = "fields|properties|methods" | split: '|'  %}
 {% for a in attr %}
-
 {% if page[a] %}
 <h3 class="ui tight header">{{ a | capitalize }}</h3>
-
-{% comment %}
-name
-attributes
-type
-description
-parameters:
-  - name: args
-    is_var_args: true
-    type: system.Vector
-    template_types: [system.Object]
-    default_value: ","
-{% endcomment %}
-
 {% assign list = page[a] %}
 {% for item in list %}
   {% capture params %}{% if item.parameters %}({%
-    for p in item.parameters
-      %}{{ p.name }}:{% include module_linker.liquid module=p.type base_url=module_url %}{%
+    for p in item.parameters %}{%
+      if p.is_var_args == true %}&hellip;{% endif
+      %}{{ p.name }}:{% capture ml %}{% include module_linker.liquid module=p.type base_url=module_url %}{% endcapture %}{{ ml | rstrip }}{%
+      if p.template_types %}&lt;{% for t in p.template_types %}{% capture ml %}{%
+        include module_linker.liquid module=t base_url=module_url %}{% endcapture %}{{ ml | rstrip }}{%
+        unless forloop.last %}, {% endunless %}{%
+      endfor %}&gt;{% endif %}{%
+      if p.default_value %}={{ p.default_value }}{% endif %}{%
       unless forloop.last %}, {% endunless %}{%
-    endfor
-  %}){% endif %}{% endcapture %}
-  {% capture signature %}{{ item.attributes | join: ' ' }} <strong><a href="#">{{ item.name }}</a></strong>{{ params }}:{% include module_linker.liquid module=item.type base_url=module_url %}{% endcapture %}
+    endfor %}){%
+  endif %}{% endcapture %}
+  {% capture signature %}{{ item.attributes | join: ' ' }} <button onclick="scrollto_anchor('details-{{ item.name }}')" class="ui tight primary basic button">{{ item.name }}</button>{{ params }}:{% include module_linker.liquid module=item.type base_url=module_url %}{% endcapture %}
   {% assign d_lines = item.description | split: newline %}
   {% capture content %}<code>{{ signature }}</code>{{ d_lines | first | markdownify }}{% endcapture %}
-  <div class="ui vertical tight segment">{{ content }}</div>
+  <div class="ui tight vertical segment">{{ content }}</div>
 {% endfor %}
 {% endif %}
 {% endfor %}
@@ -158,10 +148,47 @@ parameters:
 
 <div id="details" class="ui basic segment">
 <h2 class="ui dividing header">Details</h2>
+
+{% assign attr = "fields|properties|methods" | split: '|'  %}
+{% for a in attr %}
+{% if page[a] %}
+<h3 class="ui tight header">{{ a | capitalize }}</h3>
+{% assign list = page[a] %}
+{% for item in list %}
+  <div id="details-{{ item.name }}" class="ui tight vertical segment">{{ item.name }}</div>
+{% endfor %}
+{% endif %}
+{% endfor %}
+
 </div>
+
+<h2 class="ui dividing header">Scroll matter</h2>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
+<div class="ui basic segment">asdfkjads asdlkvsdf vsdfv sdf s;dlfkw ribs dflkbjs;gkjbs d;fj sd;fl ;dflk s;gobhs ;dlkfbj s;dflbk s;dlfkb s;dflv ;dlfk s;dlfkb s;gbj s;dlfbks;dflkb s;gjb sgjb sd;b s;jb s s;dfb s;db s;dlfb s;dlfb s;dlfb s;fdb ;dsf.</div>
 
 
 <script type="text/javascript">
+scrollto_anchor = function(anchor_name) {
+  window.location.hash = anchor_name;
+  return false;
+};
 toc_init = function() {
   $('.ui.accordion').accordion();
   // $('.ui.sticky')
