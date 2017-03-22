@@ -2,12 +2,6 @@
 layout: compress
 ---
 
-{% include themes/syntax.min.css %}
-
-{% capture _css %}{% include styles/tweaks.css %}{% endcapture %}{{ _css | scssify }}
-
-{% include styles/cc-icons/cc-icons.min.css %}
-
 {% include styles/semantic-ui/accordion.min.css %}
 {% include styles/semantic-ui/breadcrumb.min.css %}
 {% include styles/semantic-ui/button.min.css %}
@@ -31,3 +25,9 @@ layout: compress
 {% include styles/semantic-ui/tab.min.css %}
 {% include styles/semantic-ui/table.min.css %}
 {% include styles/semantic-ui/transition.min.css %}
+
+{% include styles/cc-icons/cc-icons.min.css %}
+
+{% include themes/syntax.min.css %}
+
+{% capture _css %}{% include styles/tweaks.css %}{% endcapture %}{{ _css | scssify }}
