@@ -49,6 +49,9 @@ i.icon.interface:before {
 .ui.tight.segment {
   padding: .5em;
 }
+.ui.tight.label, .ui.tight.button {
+  padding: .25em;
+}
 
 /* custom styling */
 #sidebar-retractable {
@@ -64,4 +67,7 @@ i.icon.interface:before {
 }
 .smaller.text {
   font-size: 80%;
+}
+code, kbd, pre, samp {
+  font-family: 'Lucida Console','Andale Mono',monospace;
 }
