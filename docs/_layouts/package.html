@@ -31,7 +31,7 @@ layout: page
     <a class="header" href="{{ page_module_url }}/{{ item.name }}">{{ item.name }}</a>
     {% capture description %}{{ item.description }}{%
       if item.description %}<br/>{% endif
-      %}_Declared in:_ {% include module_linker.liquid module=item.declaration base_url=module_url markdown='true' %}{%
+      %}_Declared in:_ {% include module_linker.liquid module=item.declaration base_url=module_url markdown='true' full_linkage='true' %}{%
     endcapture %}
     <div class="description">{{ description | markdownify }}</div>
     {% endcapture %}

@@ -38,14 +38,23 @@ methods:
     parameters:
       - name: sep
         type: system.String
+        description: "Markdown describing the `sep` parameter"
         default_value: '","'
   - name: push
     attributes: [public]
     type: system.Number
     description: "Adds one or more elements to the end of the Vector and returns the new length of the Vector.\n\n@param args Arbitrary list of items to add to the Vector.\n@return The new length of the Vector."
     parameters:
+      - name: foo
+        type: system.Number
+        description: "Markdown describing the `foo` parameter"
+      - name: bar
+        type: system.Number
+        description: "Markdown describing the `bar` parameter"
+        default_value: 9
       - name: args
         is_var_args: true
         type: system.Vector
+        description: "Markdown describing the `args` parameter"
         template_types: [system.Object]
 ---

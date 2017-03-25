@@ -46,6 +46,9 @@ i.icon.interface:before {
 .ui.tight.header {
   margin-bottom: .5em;
 }
+.ui.very.tight.header {
+  margin-bottom: .25em;
+}
 .ui.tight.segment {
   padding: .5em;
 }
