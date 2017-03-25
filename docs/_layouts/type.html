@@ -4,7 +4,7 @@ layout: page
 
 {% capture module_url %}{{ site.baseurl }}/{{ site.module_root }}{% endcapture %}
 
-<div id="heading" class="ui basic segment">
+<div class="ui basic segment"><span class="anchor" id="heading">&nbsp;</span>
 <h1 class="ui dividing header">{{ page.name }}</h1>
 
 <div class="ui list">
@@ -66,7 +66,7 @@ layout: page
   {% endif %}
 </div>
 
-<div id="description" class="ui basic segment">
+<div class="ui basic segment"><span class="anchor" id="description">&nbsp;</span>
 <h3 class="ui header">{{ page.type | capitalize }} Description</h3>
 {% capture description_file %}_{{ page.name }}-description.md{% endcapture %}
 {% capture description %}{% include_relative {{ description_file }} %}{% endcapture %}
@@ -80,11 +80,12 @@ layout: page
 
 {% assign attr = "fields|properties|methods" | split: '|'  %}
 
-<div id="listing" class="ui basic segment">
+<div class="ui basic segment"><span class="anchor" id="listing">&nbsp;</span>
 <h2 class="ui dividing header">Listing</h2>
 
 {% for a in attr %}
 {% if page[a] %}
+<span class="anchor" id="listing-{{ a }}">&nbsp;</span>
 <h3 class="ui tight header">{{ a | capitalize }}</h3>
 {% assign list = page[a] %}
 {% if list.size > 0 %}
@@ -104,18 +105,19 @@ layout: page
 </div>
 
 
-<div id="details" class="ui basic segment">
+<div class="ui basic segment"><span class="anchor" id="details">&nbsp;</span>
 <h2 class="ui dividing header">Details</h2>
 
 {% for a in attr %}
 {% if page[a] %}
+<span class="anchor" id="details-{{ a }}">&nbsp;</span>
 <h3 class="ui tight header">{{ a | capitalize }}</h3>
 {% assign list = page[a] %}
 {% assign isFunc = false %}{% if a == 'methods' %}{% assign isFunc = true %}{% endif %}
 {% for item in list %}
   {% capture params %}{% include parameters.liquid params=item.parameters base_url=module_url %}{% endcapture %}
   {% capture signature %}{{ item.attributes | join: ' ' }} {% if isFunc %}function {% endif %}<strong>{{ item.name }}</strong>{{ params | rstrip }}:{% include module_linker.liquid module=item.type base_url=module_url %}{% endcapture %}
-  <div id="details-{{ a }}-{{ item.name }}" class="ui tight vertical segment"><h4 class="ui very tight header">{{ item.name }}{% if isFunc %}(){% endif %}</h4>
+  <div class="ui tight vertical segment"><span class="anchor" id="details-{{ a }}-{{ item.name }}">&nbsp;</span><h4 class="ui very tight header">{{ item.name }}{% if isFunc %}(){% endif %}</h4>
   <p><code>{{ signature }}</code></p>
   {{ item.description | markdownify }}
   {% if isFunc and item.parameters %}<table class="ui striped definition table"><tbody>

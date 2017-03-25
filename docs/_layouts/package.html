@@ -21,7 +21,7 @@ layout: page
 
 {% for t in types %}
 {% if page[t] %}
-<div class="ui basic segment">
+<div class="ui basic segment"><span class="anchor" id="{{ t }}">&nbsp;</span>
 <h2 class="ui dividing header">{{ t | capitalize }}</h2>
 
 <div class="ui list">
