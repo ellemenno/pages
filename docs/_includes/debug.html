@@ -26,7 +26,7 @@
 <li>{{ collection.label }}</li>
 <ul>
 {% for doc in collection.docs %}
-<li>{% if doc.type %}* {% endif %}{{ doc.title }} - {{ doc.url }} - {{ site.baseurl }}{{ doc.url }}</li>
+<li>{% if doc.type %}* {% endif %}{{ doc.title }} ({{ doc.layout }}) - {{ doc.url }} - {{ site.baseurl }}{{ doc.url }}</li>
 {% endfor %}
 </ul>
 {% endunless %}
