@@ -6,7 +6,6 @@ layout: compress
 
 {% include scripts/mousetrap/mousetrap-1.6.0.min.js %}
 
-{% include scripts/semantic-ui/accordion.min.js %}
 {% include scripts/semantic-ui/history.min.js %}
 {% include scripts/semantic-ui/search.min.js %}
 {% include scripts/semantic-ui/sidebar.min.js %}

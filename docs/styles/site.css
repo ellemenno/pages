@@ -2,7 +2,6 @@
 layout: compress
 ---
 
-{% include styles/semantic-ui/accordion.min.css %}
 {% include styles/semantic-ui/breadcrumb.min.css %}
 {% include styles/semantic-ui/button.min.css %}
 {% include styles/semantic-ui/container.min.css %}
