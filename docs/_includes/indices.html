@@ -24,17 +24,15 @@
 
 <div class="content">
 {% for doc in collection.docs %}
-  {% case collection.label %}
-    {% when 'api' %}
-      {% if doc.name %}
-        {% capture link %}{{ doc.module }}.{{ doc.name }}{% endcapture %}
-      {% else %}
-        {% capture link %}<strong>{{ doc.module }}</strong>{% endcapture %}
-      {% endif %}
-    {% else %}
-      {% capture link %}{{ doc.title }}{% endcapture %}
+  {% capture link %}{{ doc.title }}{% endcapture %}
+  {% capture url %}{{ doc.url }}#/{{ collection.label | downcase }}/{% endcapture %}
+  {% case doc.layout %}
+    {% when 'package' %}
+      {% capture link %}<strong>{{ doc.module }}</strong>{% endcapture %}
+    {% when 'type' %}
+      {% capture link %}{{ doc.module }}.{{ doc.name }}{% endcapture %}
   {% endcase %}
-  <a class="very tight item" href="{{ site.baseurl }}{{ doc.url }}">{{ link }}</a>
+  <a class="very tight item" href="{{ site.baseurl }}{{ url }}">{{ link }}</a>
 {% endfor %}
 </div>
 </div>

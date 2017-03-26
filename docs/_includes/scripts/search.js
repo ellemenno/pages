@@ -3,15 +3,15 @@ pkg_search_init = function() {
   {% for collection in site.collections %}
   {% unless collection.label == 'posts' %}
   {% for doc in collection.docs %}
+    {% assign title = doc.title %}
+    {% capture url %}{{ doc.url }}#/{{ collection.label | downcase }}/{% endcapture %}
     {% case doc.layout %}
       {% when 'package' %}
          {% assign title = doc.module %}
       {% when 'type' %}
          {% assign title = doc.name %}
-      {% else %}
-         {% assign title = doc.title %}
     {% endcase %}
-    { title: '{{ title }}', url: '{{ doc.url }}' },
+    { title: '{{ title }}', url: '{{ url }}' },
   {% endfor %}
   {% endunless %}
   {% endfor %}
