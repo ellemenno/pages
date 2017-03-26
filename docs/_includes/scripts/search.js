@@ -24,7 +24,7 @@ pkg_search_init = function() {
   });
 
   // set up shortut key for search input focus
-  Mousetrap.bind('s', function() { $( "#search .prompt" ).focus(); return false; });
+  Mousetrap.bind('s', function() { $( '#search .prompt' ).focus(); return false; });
 };
 
-$(window).on( "load", pkg_search_init )
+$(window).on( 'load', pkg_search_init )
