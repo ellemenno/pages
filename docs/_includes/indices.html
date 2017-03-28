@@ -20,21 +20,18 @@
 {% capture class %}ui {% if forloop.first %}active {% endif %}inverted tab segment{% endcapture %}
 <div class="{{ class }}" data-tab="{{ collection.label | downcase }}">
 <h4 class="ui header">{{ collection.title }}</h4>
-<div class="ui inverted vertical fluid accordion text menu">
-
-<div class="content">
+<div class="ui inverted link list">
 {% for doc in collection.docs %}
   {% capture link %}{{ doc.title }}{% endcapture %}
   {% capture url %}{{ doc.url }}#/{{ collection.label | downcase }}/{% endcapture %}
   {% case doc.layout %}
     {% when 'package' %}
-      {% capture link %}<strong>{{ doc.module }}</strong>{% endcapture %}
+      {% capture link %}<i class="folder outline icon"></i> {{ doc.module }}{% endcapture %}
     {% when 'type' %}
       {% capture link %}{{ doc.module }}.{{ doc.name }}{% endcapture %}
   {% endcase %}
-  <a class="very tight item" href="{{ site.baseurl }}{{ url }}">{{ link }}</a>
+  <a class="very tight smaller text item" href="{{ site.baseurl }}{{ url }}">{{ link }}</a>
 {% endfor %}
-</div>
 </div>
 </div>
 {% endunless %}
