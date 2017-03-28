@@ -2,6 +2,9 @@
 layout: compress
 ---
 
+{% include styles/semantic-ui/reset.min.css %}
+{% include styles/semantic-ui/site.min.css %}
+
 {% include styles/semantic-ui/breadcrumb.min.css %}
 {% include styles/semantic-ui/button.min.css %}
 {% include styles/semantic-ui/container.min.css %}
@@ -17,11 +20,9 @@ layout: compress
 {% include styles/semantic-ui/menu.min.css %}
 {% include styles/semantic-ui/modal.min.css %}
 {% include styles/semantic-ui/rail.min.css %}
-{% include styles/semantic-ui/reset.min.css %}
 {% include styles/semantic-ui/search.min.css %}
 {% include styles/semantic-ui/segment.min.css %}
 {% include styles/semantic-ui/sidebar.min.css %}
-{% include styles/semantic-ui/site.min.css %}
 {% include styles/semantic-ui/sticky.min.css %}
 {% include styles/semantic-ui/tab.min.css %}
 {% include styles/semantic-ui/table.min.css %}
