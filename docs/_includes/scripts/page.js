@@ -1,10 +1,9 @@
 sidebar_init = function() {
   $('#sidebar-retractable')
   .sidebar({
-    closable: false,
+    closable: true,
     dimPage: false,
     transition: 'push',
-    context: $('.ui.pushable.segment'),
   })
   .sidebar('attach events', '#title .button.item', 'toggle')
   ;
@@ -12,7 +11,6 @@ sidebar_init = function() {
   $('#sidebar-fixed')
     .visibility({
       type   : 'fixed',
-      offset : 15
     })
   ;
 };
@@ -33,7 +31,7 @@ ensure_desktop_view = function() {
   }
 };
 check_sidebar_visibility = function() {
-  if ($('#sidebar-fixed').css('display') == 'none') ensure_mobile_view();
+  if ('none' == $('#sidebar-fixed').css('display')) ensure_mobile_view();
   else ensure_desktop_view();
 };
 

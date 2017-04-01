@@ -16,8 +16,16 @@
 #title .button.item {
   display: none;
 }
+#sidebar-fixed {
+  overflow-y: auto!important;
+  height: 100%;
+  max-height: 100vh;
+}
+#sidebar-retractable {
+  width: 15rem;
+}
 .pusher #page {
-  margin-left: 15rem;
+  margin-left: 15rem; /* position page to left of sidebar when it's not retractable */
 }
 @media only screen and (max-width: 767px) {
   #title .button.item {
@@ -66,13 +74,8 @@ i.icon.interface:before {
 }
 
 /* custom styling */
-#sidebar-retractable {
-  width: 15rem;
-}
-#sidebar-fixed {
-  overflow-y: auto!important;
-  height: 100%;
-  max-height: 100vh;
+#page {
+  margin-top:3.40em; /* position page under top menu */
 }
 .larger.text {
   font-size: 150%;

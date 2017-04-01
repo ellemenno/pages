@@ -4,7 +4,7 @@ layout: page
 
 {% capture module_url %}{{ site.baseurl }}/{{ site.module_root }}{% endcapture %}
 
-<div class="ui basic segment"><span class="anchor" id="heading">&nbsp;</span>
+<span class="anchor" id="heading">&nbsp;</span>
 <h1 class="ui dividing header">{{ page.name }}</h1>
 
 <div class="ui list">
@@ -71,8 +71,6 @@ layout: page
 {% capture description_file %}_{{ page.name }}-description.md{% endcapture %}
 {% capture description %}{% include_relative {{ description_file }} %}{% endcapture %}
 {{ description | replace: '   ⇥', '⇥' | replace: '⇥', site.code_indent | markdownify }}
-</div>
-
 </div>
 
 {% capture newline %}

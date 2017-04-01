@@ -2,19 +2,21 @@
 layout: base
 ---
 
-<div id="title" class="ui fixed menu">
+<!-- top menu -->
+<div id="title" class="ui top fixed menu">
 {% include title.html %}
 </div>
 
-<div class="ui pushable segment" style="margin-top: 3.40em;">
-
-<div id="sidebar-retractable" class="ui vertical left inverted sidebar menu" style="border-radius: 0;">
+<!-- retractable sidebar (only used in mobile view) -->
+<div id="sidebar-retractable" class="ui vertical inverted sidebar menu">
+  <!-- #indices is re-parented here for mobile view -->
 </div>
 
+<!-- main contents (will be pushed right when retractable sidebar opens) -->
 <div class="pusher">
 
 <div class="ui left attached internal rail">
-<div id="sidebar-fixed" class="ui vertical left inverted menu" style="border-radius: 0;">
+<div id="sidebar-fixed" class="ui vertical inverted menu">
 <div id="indices">
 {% include indices.html %}
 </div>
@@ -26,7 +28,6 @@ layout: base
 <div id="content" class="ui basic segment">
 {{ content }}
 </div>
-
 <div id="attribution" class="ui basic segment">
 {% include attribution.html %}
 </div>
@@ -34,8 +35,8 @@ layout: base
 </div>
 
 </div>
-</div>
 
+<!-- help modal -->
 <div id="help" class="ui small modal">
 {% include help.html %}
 </div>
