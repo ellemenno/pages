@@ -12,6 +12,9 @@
   flex: 1;
 }
 
+#title {
+  margin-left: 15rem;
+}
 /* toggle visibility of menu button / sidebar at 'mobile' width */
 #title .button.item {
   display: none;
@@ -49,9 +52,6 @@ span.anchor {
 }
 
 /* additions to semantic-ui */
-i.icon.interface:before {
-  content: "\f22c" /* same as 'neuter' */
-}
 .ui.vertical.text.menu .tight.item {
   margin: 0;
   padding: .5em;
@@ -74,6 +74,9 @@ i.icon.interface:before {
 }
 
 /* custom styling */
+code, kbd, pre, samp {
+  font-family: 'Lucida Console','Andale Mono',monospace;
+}
 #page {
   margin-top:3.40em; /* position page under top menu */
 }
@@ -86,6 +89,9 @@ i.icon.interface:before {
 .normal.text {
   font-weight: normal;
 }
-code, kbd, pre, samp {
-  font-family: 'Lucida Console','Andale Mono',monospace;
+.ui.tab.segment .link.list .item>.icon {
+  float: right;
+}
+.ui.list .item>.icon {
+  float: left;
 }

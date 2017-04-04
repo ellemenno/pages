@@ -12,7 +12,6 @@ layout: compress
 {% include styles/semantic-ui/divider.min.css %}
 {% include styles/semantic-ui/grid.min.css %}
 {% include styles/semantic-ui/header.min.css %}
-{% include styles/semantic-ui/icon.min.css %}
 {% include styles/semantic-ui/input.min.css %}
 {% include styles/semantic-ui/item.min.css %}
 {% include styles/semantic-ui/label.min.css %}
@@ -28,8 +27,9 @@ layout: compress
 {% include styles/semantic-ui/table.min.css %}
 {% include styles/semantic-ui/transition.min.css %}
 
-{% include styles/cc-icons/cc-icons.min.css %}
-
 {% include themes/syntax.min.css %}
 
-{% capture _css %}{% include styles/tweaks.css %}{% endcapture %}{{ _css | scssify }}
+{% capture _css %}
+{% include styles/svg-icons.css %}
+{% include styles/tweaks.css %}
+{% endcapture %}{{ _css | scssify }}

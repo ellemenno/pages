@@ -26,7 +26,7 @@
   {% capture url %}{{ doc.url }}#/{{ collection.label | downcase }}/{% endcapture %}
   {% case doc.layout %}
     {% when 'package' %}
-      {% capture link %}<i class="folder outline icon"></i> {{ doc.module }}{% endcapture %}
+      {% capture link %}<svg class="icon"><use xlink:href="#folder-outline" /></svg> {{ doc.module }}{% endcapture %}
     {% when 'type' %}
       {% capture link %}{{ doc.module }}.{{ doc.name }}{% endcapture %}
   {% endcase %}
