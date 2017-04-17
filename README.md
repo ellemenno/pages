@@ -9,6 +9,9 @@ testing github pages for /docs
 - Jekyll defaults: http://jekyllrb.com/docs/configuration/#default-configuration
 - Github pages defaults: https://help.github.com/articles/configuring-jekyll/
 
+- https://mademistakes.com/articles/using-jekyll-2016/
+- https://github.com/blog/1939-how-github-uses-github-to-document-github
+
 
 ## code
 

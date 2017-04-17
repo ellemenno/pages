@@ -5,7 +5,7 @@ highlighter: rouge
 
 # https://jekyllrb.com/docs/configuration/
 permalink: pretty # for trailing slash urls (requires index.html inside)
-collections:
+collections: # used for the tabbed sections that appear in the side menu
   api:
     output: true
     title: API
