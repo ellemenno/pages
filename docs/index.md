@@ -10,8 +10,6 @@ This is the {{ page.title }} page.
 It is the first page presented, and gives on overview of the site
 The following text should help the page scroll so the sticky header can be tested
 
-{% include debug.html %}
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros sit amet justo mattis interdum. Sed vitae nisl in lacus mollis efficitur. Fusce vel euismod urna. Etiam id turpis arcu. Vestibulum commodo quis nisi ut suscipit. Pellentesque pretium accumsan porta. Maecenas feugiat nisi condimentum fringilla rhoncus. Pellentesque suscipit rhoncus felis. Sed cursus dui magna, sit amet euismod dolor venenatis aliquet. Proin non tellus varius, fringilla velit non, finibus lorem. Aenean tortor urna, ornare sed nibh sed, tristique tincidunt lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 Etiam condimentum nisl eget eros eleifend fermentum. Donec pellentesque lacinia leo, et suscipit velit efficitur eu. Pellentesque ut congue lacus. Vestibulum vehicula mattis quam, in porta erat. Maecenas risus turpis, egestas eget tellus sit amet, tristique convallis neque. Vestibulum dui velit, cursus euismod turpis at, mollis sodales dolor. Proin ipsum arcu, congue et ligula non, maximus efficitur lorem. Etiam fringilla finibus tortor vel rhoncus. Fusce vitae libero facilisis, venenatis tortor eget, viverra justo. In eget bibendum velit, ut venenatis leo. Vivamus euismod, mauris ac sollicitudin interdum, ex enim venenatis nulla, vel laoreet velit odio id nisi. Nulla suscipit massa sem, at molestie nibh aliquam sit amet. Pellentesque porttitor eget turpis id consectetur. Integer faucibus malesuada nulla, et cursus elit malesuada sit amet. Integer turpis ex, accumsan vitae condimentum ac, feugiat ac tortor.
