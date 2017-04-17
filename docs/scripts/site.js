@@ -16,4 +16,3 @@ layout: compress
 {% include scripts/semantic-ui/sticky.min.js %}
 {% include scripts/semantic-ui/tab.min.js %}
 {% include scripts/semantic-ui/transition.min.js %}
-{% include scripts/semantic-ui/visibility.min.js %}

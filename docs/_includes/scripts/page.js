@@ -7,12 +7,6 @@ sidebar_init = function() {
   })
   .sidebar('attach events', '#title .button.item', 'toggle')
   ;
-
-  $('#sidebar-fixed')
-    .visibility({
-      type   : 'fixed',
-    })
-  ;
 };
 
 $(sidebar_init);
