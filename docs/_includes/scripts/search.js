@@ -20,7 +20,7 @@ pkg_search_init = function() {
   // urls are auto-followed, so no callback needed
   $('#search').search({
     source: search_content,
-    selectFirstResult: true
+    selectFirstResult: true,
   });
 
   // set up shortut key for search input focus
