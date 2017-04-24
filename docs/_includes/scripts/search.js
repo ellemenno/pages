@@ -11,7 +11,7 @@ pkg_search_init = function() {
       {% when 'type' %}
          {% assign title = doc.name %}
     {% endcase %}
-    { title: '{{ title }}', url: '{{ url }}' },
+    { title: '{{ title }}', url: '{{ site.baseurl }}{{ url }}' },
   {% endfor %}
   {% endunless %}
   {% endfor %}
